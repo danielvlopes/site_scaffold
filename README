@@ -1,52 +1,16 @@
 SiteScaffold
 ============
 
-
+This plugin is a basic generator for some repetitive task when working with websites. You can use script/generate to create
+contact forms, admin painel with mini-blog session and product catalog.
 
 Example
 =======
 
-Example goes here.
+script/generate admin_base
+script/generate posts
+script/generate contact_form
+script/generate products_catalog
 
 
-Copyright (c) 2008 [name of plugin creator], released under the MIT license
-
-== Installation
-
-Finished generating the basic posts system. There are still a few things you have to
-do manually. 
-
-	1 - To use the generator run:
-	script/generate posts
-	Finished generating the basic posts system. There are still a few things you have to
-	do manually. 
-
-	2 - install restfull_authentication
-	script/plugin install http://svn.techno-weenie.net/projects/plugins/restful_authentication/
-	run script/generate authenticated user sessions
-	Open your users_controller.rb and copy the first line to you application.rb (the line is somthing like this include AuthenticatedSystem	)
-
-	3 - install attachment_fu
-	script/plugin install http://svn.techno-weenie.net/projects/plugins/attachment_fu/
-	
-	4 - install will_paginate
-	If using rails edge:
-	script/plugin install git://github.com/mislav/will_paginate.git
-	If not, you can download the will_paginate project and paste on your
-	vendors/plugins folder.
-	
-
-	5 - create this routes in your routes.rb
-	map.posts  'posts/', :controller=>'posts', :action=>'index'
-	map.logout '/logout', :controller => 'sessions', :action => 'destroy'		
-	map.namespace :admin do |admin|
-		admin.signup '/signup', :controller => 'users', :action => 'new'
-		admin.login '/login', :controller => 'sessions', :action => 'new'
-    admin.resources :posts   
-  end 
-  
-  6 - include <%= javascript_include_tag "nicEdit" %> 
-  in views edit.html.erb and new.html.erb or place this line in a layout.
-	
-	7 - Setup your database for your application and run rake migrate. 
-	rake db:migrate
+Copyright (c) 2008 Daniel Lopes, released under the MIT license
