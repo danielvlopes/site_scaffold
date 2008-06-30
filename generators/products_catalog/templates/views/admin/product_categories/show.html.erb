@@ -1,0 +1,10 @@
+<% admin_page_header "Exibindo Categoria de Produto" %>
+
+<p>
+  <b>Categoria:</b>
+  <%=h @product_category.name %>
+</p>
+
+
+<%= link_to 'Editar', edit_admin_product_category_path(@product_category) %> |
+<%= link_to 'Voltar', admin_product_categories_path %>

@@ -1,0 +1,7 @@
+Description:
+		Create the base for Admin panel.
+		Create helper base class for all other Admin classes, create the CSS for admin panel and prepare
+		some functionalitys for all admin classes.
+
+Examples:
+    `./script/generate admin_base`

@@ -1,0 +1,33 @@
+<% admin_page_header "Listando Notícias" %>
+
+<table width="100%" id="datagrid">
+  <tr>
+    <th>AUTOR</th>
+    <th>TÍTULO</th>
+    <th>TEXTO</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>  
+  </tr>
+
+  <% 
+    odd_or_even = 0
+	for post in @posts
+	  odd_or_even=1-odd_or_even
+  %> 
+
+  <tr class="list_line<%=odd_or_even%>">
+    <td><%=h post.autor %></td>
+    <td><%=h post.title %></td>
+    <td><%= truncate(post.body, 50) %></td>
+    <td class="show_column"><%= link_to 'Exibir', admin_post_path(post) %></td>
+    <td class="edit_column"><%= link_to 'Editar', edit_admin_post_path(post) %></td>
+    <td class="delete_column"><%= link_to 'Excluir', admin_post_path(post), :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Adicionar notícia', new_admin_post_path %>
+

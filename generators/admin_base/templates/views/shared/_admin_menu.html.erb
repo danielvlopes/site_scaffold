@@ -1,0 +1,16 @@
+<% page = "/" + request.path_parameters['controller'] + "/" + request.path_parameters['action']  %>
+<div id="tabs">
+	<ul id="main_tabs">
+		<% #PLACE HERE THE MENU CONDITION, LIKE: if page.include? admin_posts_path %>
+	    <li>
+	    	<% #link_to "Posts", admin_posts_path, :class=>"current" %>
+	    </li>
+    <% # else %>
+	    <li>
+	    	<% # link_to "Posts", admin_posts_path %>
+	    </li>
+	  <% #end %>
+		      	  
+	</ul>
+  <div id="user">Usuário: <%= current_user.login %> - <%= link_to "SAIR", logout_path%></div>
+</div>

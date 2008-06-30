@@ -1,0 +1,9 @@
+== After Generate
+
+Finished generating the admin_base. Now, you can use other generators to create a scaffold
+for your site.
+
+LIKE
+ `./script/generate posts` # generate a basic blog funcionality
+ `./script/generate contac_form` # generate the contact_form
+ `./script/generate products_catalog` # generate the product_catalog

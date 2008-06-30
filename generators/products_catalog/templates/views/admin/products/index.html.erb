@@ -1,0 +1,40 @@
+<% admin_page_header "Listando Produtos" %>
+
+<table width="100%" id="datagrid">
+  <tr>
+    <th>PRODUTO</th>
+    <th>CATEGORIA</th>
+    <th>PREÇO</th>
+    <th>PREÇO PROM.</th>
+    <th>BREVE DESC.</th>
+    <th>DESCRIÇÃO</th>
+    <th>FOTO</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>    
+  </tr>
+
+  <%- 
+    odd_or_even = 0
+	for product in @products
+	  odd_or_even=1-odd_or_even
+  -%> 
+  <tr class="list_line<%=odd_or_even%>">
+    <td><%=h product.name %></td>
+    <td><%=h product.product_category.name %></td>
+    <td><%=h product.price %></td>
+    <td><%=h product.promotional_price %></td>
+    <td><%=h product.short_description %></td>
+    <td><%=h product.description %></td>
+    <td align="center"><%= image_tag(product.product_images[0].public_filename(:thumb),:size=>"50x30") %>
+    <td class="show_column"><%= link_to 'EXIBIR', admin_product_path(product) %></td>
+    <td class="edit_column"><%= link_to 'EDITAR', edit_admin_product_path(product) %></td>
+    <td class="delete_column"><%= link_to 'EXCLUIR', admin_product_path(product), :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<%- end -%>
+</table>
+
+<br />
+
+<%= link_to 'Adicionar produto', new_admin_product_path %><br/>
+<%= link_to 'Categorias de produtos', admin_product_categories_path %>

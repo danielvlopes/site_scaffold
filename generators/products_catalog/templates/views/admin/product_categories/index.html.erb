@@ -1,0 +1,24 @@
+<% admin_page_header "Listando Categorias de Produto" %>
+
+<table width="100%" id="datagrid">
+  <tr>
+    <th>Categoria</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>
+    <th>&nbsp;</th>      
+  </tr>
+
+<% for product_category in @product_categories %>
+  <tr>
+    <td><%=h product_category.name %></td>
+    <td class="show_column"><%= link_to 'EXIBIR', admin_product_category_path(product_category) %></td>
+    <td class="edit_column"><%= link_to 'EDITAR', edit_admin_product_category_path(product_category) %></td>
+    <td class="delete_column"><%= link_to 'EXCLUIR', admin_product_category_path(product_category), :confirm => 'Tem certeza?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Adicionar categoria', new_admin_product_category_path %><br/>
+<%= link_to 'Voltar para produtos', admin_products_path %>

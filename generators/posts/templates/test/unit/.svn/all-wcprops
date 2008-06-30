@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/14/trunk/tiny_posts/generators/posts/templates/test/unit
+END
+post_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/svn/!svn/ver/14/trunk/tiny_posts/generators/posts/templates/test/unit/post_test.rb
+END
+post_image_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/!svn/ver/14/trunk/tiny_posts/generators/posts/templates/test/unit/post_image_test.rb
+END

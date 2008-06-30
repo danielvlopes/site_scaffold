@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/14/trunk/tiny_posts/generators/posts/templates/migrate
+END
+create_post_images.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/!svn/ver/14/trunk/tiny_posts/generators/posts/templates/migrate/create_post_images.rb
+END
+create_posts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/!svn/ver/14/trunk/tiny_posts/generators/posts/templates/migrate/create_posts.rb
+END

@@ -1,0 +1,12 @@
+NAME
+     products_catalog
+
+DESCRIPTION
+     Creates a simple system for admin and show catalog of products
+       
+EXAMPLE
+      ./script/generate products_catalog
+
+MORE INFO
+	http://www.areacriacoes.com.br/
+	

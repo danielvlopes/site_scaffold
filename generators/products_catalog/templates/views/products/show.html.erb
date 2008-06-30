@@ -1,0 +1,26 @@
+<p>
+  <b>Produto:</b>
+  <%=h @product.name %>
+</p>
+
+<p>
+  <b>Preço:</b>
+<%- if @product.promotional_price > 0 %>
+  <%= "de <span style='text-decoration:line-through;'> #{@product.price}</span> por #{@product.promotional_price}" %>
+<%- else -%>
+	<%=h  @product.price %>
+<%- end -%>  
+</p>
+
+<p>
+  <b>Descrição:</b>
+  <%=h @product.description %>
+</p>
+
+<p>
+	<% for thumb in @product.product_images %>
+	<%= link_to image_tag(thumb.public_filename(:thumb)), thumb.public_filename, :target => "_blank" %>
+	<% end %>
+</p>
+
+<%= link_to 'Voltar', products_url %>

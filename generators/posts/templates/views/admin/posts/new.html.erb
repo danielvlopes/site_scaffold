@@ -1,0 +1,34 @@
+<% admin_page_header "Nova notícia" %>
+
+<%= error_messages_for :post %>
+
+<% form_for(@post, :url => admin_post_path(@post), :html => { :multipart => true }) do |f| %>
+  <p>
+    <b>Autor</b><br />
+    <%= f.text_field :autor, :value => current_user.login, :readonly=>"readonly" %>
+  </p>
+
+  <p>
+    <b>Título</b><br />
+    <%= f.text_field :title %>
+  </p>
+
+  <p><b>Texto</b></p>
+   <%= f.text_area :body %>
+	<br/>
+
+  <div id="upload_images">
+    <%= render :partial => "image", :collection => @post.post_images %>
+  </div>
+  
+  <%= add_image_field "Adicionar mais imagens"%>  
+	<p class="text_hint">apenas imagens com no máximo 500kb.</p>    
+	
+  <p>
+    <%= f.submit "Criar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', admin_posts_path %>
+
+<%= niceditor %>
