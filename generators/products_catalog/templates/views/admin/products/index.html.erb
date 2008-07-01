@@ -25,7 +25,7 @@
     <td><%=h product.price %></td>
     <td><%=h product.promotional_price %></td>
     <td><%=h product.short_description %></td>
-    <td><%=h product.description %></td>
+    <td><%= truncate(product.description,30) %></td>
     <td align="center">
 			<%= image_tag(product.product_images[0].public_filename(:thumb),:size=>"50x30") if product.product_images[0]%>
 		</td>	
