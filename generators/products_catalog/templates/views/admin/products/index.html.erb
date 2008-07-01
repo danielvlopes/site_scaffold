@@ -26,7 +26,9 @@
     <td><%=h product.promotional_price %></td>
     <td><%=h product.short_description %></td>
     <td><%=h product.description %></td>
-    <td align="center"><%= image_tag(product.product_images[0].public_filename(:thumb),:size=>"50x30") %>
+    <td align="center">
+			<%= image_tag(product.product_images[0].public_filename(:thumb),:size=>"50x30") if product.product_images[0]%>
+		</td>	
     <td class="show_column"><%= link_to 'EXIBIR', admin_product_path(product) %></td>
     <td class="edit_column"><%= link_to 'EDITAR', edit_admin_product_path(product) %></td>
     <td class="delete_column"><%= link_to 'EXCLUIR', admin_product_path(product), :confirm => 'Tem certeza?', :method => :delete %></td>
