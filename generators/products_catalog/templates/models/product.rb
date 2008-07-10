@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
 	belongs_to :product_category
 	has_many :product_images, :dependent=>:destroy
   validates_presence_of :name, :product_category_id
+  validates_length_of :short_description, :maximum => 30, :message => "breve descri&ccedil;&atilde;o deve ser menor que %d"  
   after_update :save_images  	
 	
   #setter for virtual atribute images_attributes
