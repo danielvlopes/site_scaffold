@@ -1,7 +1,7 @@
 class CreatePostImages < ActiveRecord::Migration
   def self.up
     create_table :post_images do |t|
-      t.integer :post_id
+      t.references :post
       t.integer :parent_id
       t.string :content_type
       t.string :filename
