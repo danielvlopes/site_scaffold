@@ -1,20 +1,21 @@
 <h1>Notícias</h1>
 
-  <% for post in @posts %>
-	<h2><%=h post.title.titleize %></h2>
-	<p>publicado por <%=h post.autor%> </p>
+<% for post in @posts %>
+<h2><%=h post.title.titleize %></h2>
+<p>publicado por <%=h post.author%> </p>
 
-	<div class="postBody">
-		<%= post.body %>
-	</div>
-	<div class="postImages">
-		<% for image in post.post_images %>
-			<%= link_to image_tag(image.public_filename(:thumb), :width => "70", :height=>"50"), image.public_filename, :target=>'_blank' %>
-		<% end %>
-	</div>
+<div class="postBody">
+<%= post.body %>
+</div>
 
-	<hr/>
+<div class="postImages">
+<% for thumb in post.images %>
+	<%= link_to image_tag(thumb.image.url(:small), :width => "70", :height=>"50"), thumb.image.url, :target=>'_blank' %>
+<% end %>
+</div>
 
-	<% end %>
+<hr/>
+
+<% end %>
 
 

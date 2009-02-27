@@ -1,7 +1,7 @@
 <div class="image_field">
   <p>
   <% fields_for "post[images_attributes][]", image  do |f|%>
-      Imagem: <%= f.file_field "uploaded_data", :index => nil %>
+      Imagem: <%= f.file_field "image", :index => nil %>
       <%= link_to_function "remover", "$(this).up('.image_field').remove();", :class=>"link_delete"%>
   <% end %>
   </p>

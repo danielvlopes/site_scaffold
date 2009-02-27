@@ -1,11 +1,10 @@
-<% admin_page_header "Editando Notícia" %>
+<% admin_page_header "Editando Not&iacute;cia" %>
 
-<%= error_messages_for :post %>
-
-<% form_for(@post, :url => admin_post_path(@post), :html => { :multipart => true }) do |f| %>
+<% form_for [:admin,@post], :html => { :multipart => true } do |f| %>
+	<%= f.error_messages %>
   <p>
     <b>Autor</b><br />
-    <%= f.text_field :autor, :value => current_user.login, :readonly=>"readonly" %>
+    <%= f.text_field :author, :value => current_user.login, :readonly=>"readonly" %>
   </p>
 
   <p>
@@ -18,19 +17,19 @@
 	<br/>
 
   <p class="text_hint">
-  	apenas imagens com no máximo 500kb.
+		apenas imagens com no m&aacute;ximo 500kb.
   </p>
 
   <div id="upload_images">
     <b>Imagens:</b><br/>
-	<% for images in @post.post_images %>
+	<% for post_image in @post.images %>
 		<div class="image_field">
 		  <p>
-		  <% fields_for "post[update_images][]", images  do |f|%>
-			    	<%= link_to image_tag(images.public_filename(:thumb)), images.public_filename, :target => "_blank" %>
-		        <%= link_to_function "remover", "mark_for_destroy(this)"%>
-		        <%= f.hidden_field :id, :index => nil %>
-		        <%= f.hidden_field :should_destroy, :index => nil, :class => "should_destroy" %>
+		  <% fields_for "post[update_images][]", post_image  do |f|%>
+						<%= link_to image_tag(post_image.image.url(:small)), post_image.image.url, :target => "_blank" %>
+						<%= link_to_function "remover", "mark_for_destroy(this)"%>
+						<%= f.hidden_field :id, :index => nil %>
+						<%= f.hidden_field :should_destroy, :index => nil, :class => "should_destroy" %>
 		  <% end %>
 		  </p>
 		</div>

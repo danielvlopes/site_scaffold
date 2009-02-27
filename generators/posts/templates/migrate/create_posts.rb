@@ -1,7 +1,7 @@
 class CreatePosts < ActiveRecord::Migration
   def self.up
     create_table :posts do |t|
-      t.string :autor
+      t.string :author
       t.string :title
       t.text :body
 

@@ -2,13 +2,10 @@ class CreatePostImages < ActiveRecord::Migration
   def self.up
     create_table :post_images do |t|
       t.references :post
-      t.integer :parent_id
-      t.string :content_type
-      t.string :filename
-      t.string :thumbnail
-      t.integer :size
-      t.integer :width
-      t.integer :height
+      t.string     :image_file_name
+      t.string     :image_content_type
+      t.string     :image_file_size
+      t.string     :image_updated_at
 
       t.timestamps
     end

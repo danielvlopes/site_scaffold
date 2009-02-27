@@ -38,6 +38,7 @@ class PostsGenerator < Rails::Generator::Base
       m.migration_template "migrate/create_posts.rb", "db/migrate", :migration_file_name => "create_posts"
       m.migration_template "migrate/create_post_images.rb", "db/migrate", :migration_file_name => "create_post_images"
 
+      m.after_generate "create_posts","create_post_images"
       m.readme "INSTALL"
     end
   end

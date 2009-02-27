@@ -14,12 +14,8 @@
     <th>&nbsp;</th>
   </tr>
 
-  <%-
-    odd_or_even = 0
-	for product in @products
-	  odd_or_even=1-odd_or_even
-  -%>
-  <tr class="list_line<%=odd_or_even%>">
+  <%- for product in @products -%>
+  <tr class="<%=cycle('odd','even')%>">
     <td><%=h product.name %></td>
     <td><%=h product.product_category.name %></td>
     <td><%=h product.price %></td>

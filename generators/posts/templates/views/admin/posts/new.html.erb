@@ -1,11 +1,10 @@
-<% admin_page_header "Nova notícia" %>
+<% admin_page_header "Nova not&iacute;cia" %>
 
-<%= error_messages_for :post %>
-
-<% form_for(@post, :url => admin_post_path(@post), :html => { :multipart => true }) do |f| %>
+<% form_for [:admin,@post], :html => { :multipart => true } do |f| %>
+	<%= f.error_messages %>
   <p>
     <b>Autor</b><br />
-    <%= f.text_field :autor, :value => current_user.login, :readonly=>"readonly" %>
+    <%= f.text_field :author, :value => current_user.login, :readonly=>"readonly" %>
   </p>
 
   <p>
@@ -18,11 +17,11 @@
 	<br/>
 
   <div id="upload_images">
-    <%= render :partial => "image", :collection => @post.post_images %>
+    <%= render :partial => "image", :collection => @post.images %>
   </div>
 
   <%= add_image_field "Adicionar mais imagens"%>
-	<p class="text_hint">apenas imagens com no máximo 500kb.</p>
+	<p class="text_hint">apenas imagens com no m&aacute;ximo 500kb.</p>
 
   <p>
     <%= f.submit "Criar" %>

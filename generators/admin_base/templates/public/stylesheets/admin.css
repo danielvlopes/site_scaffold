@@ -217,13 +217,13 @@ MISC
 	line-height:20px;
 }
 
-#datagrid .list_line0{
+#datagrid .odd{
 	background-color:#ecf1fa;
 	line-height:20px;
 	font-size:13px;
 }
 
-#datagrid .list_line1{
+#datagrid .even{
 	background-color:#fff;
 	font-size:13px;
 }

@@ -2,7 +2,7 @@
 
 <p>
   <b>Autor:</b>
-  <%=h @post.autor %>
+  <%=h @post.author %>
 </p>
 
 <p>
@@ -16,8 +16,8 @@
 </p>
 
 <p>
-	<% for thumb in @post.post_images %>
-	<%= link_to image_tag(thumb.public_filename(:thumb)), thumb.public_filename, :target => "_blank" %>
+	<% for thumb in @post.images %>
+	<%= link_to image_tag(thumb.image.url(:small)), thumb.image.url, :target => "_blank" %>
 	<% end %>
 </p>
 

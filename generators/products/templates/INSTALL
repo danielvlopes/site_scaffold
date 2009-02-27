@@ -23,7 +23,6 @@ Run on terminal
 5 - place the routes bellow in routes.rb file
 map.products 'products/', :controller=>'products', :action=>'index'
 map.product 'products/:id' , :controller=>'products', :action=>'show'
-
 map.resources :users
 map.resource :session
 map.logout '/logout', :controller => 'sessions', :action => 'destroy'

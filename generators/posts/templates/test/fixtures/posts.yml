@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  autor: MyString
+  author: MyString
   title: MyString
   body: MyString
 
 two:
-  autor: MyString
+  author: MyString
   title: MyString
   body: MyString
