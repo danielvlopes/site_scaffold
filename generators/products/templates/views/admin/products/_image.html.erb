@@ -1,0 +1,7 @@
+<div class="image_field">
+	<p>
+		<% fields_for "product[images_attributes]", image, :index => nil  do |f|%>
+			Imagem: <%= f.file_field "image" %><%= link_to_function "remover", "this.up('.image_field').remove()", :class=>"link_delete"%>
+		<% end %>
+	</p>
+</div>

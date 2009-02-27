@@ -7,14 +7,14 @@
     <th>TEXTO</th>
     <th>&nbsp;</th>
     <th>&nbsp;</th>
-    <th>&nbsp;</th>  
+    <th>&nbsp;</th>
   </tr>
 
-  <% 
+  <%
     odd_or_even = 0
 	for post in @posts
 	  odd_or_even=1-odd_or_even
-  %> 
+  %>
 
   <tr class="list_line<%=odd_or_even%>">
     <td><%=h post.autor %></td>

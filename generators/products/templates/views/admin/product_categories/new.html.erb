@@ -1,0 +1,15 @@
+<% admin_page_header "Nova Categoria de Produto" %>
+
+<% form_for [:admin, @product_category] do |f| %>
+	<%= f.error_messages %>
+  <p>
+    <b>Categoria</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit "Criar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', admin_product_categories_path %>

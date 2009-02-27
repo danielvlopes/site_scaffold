@@ -1,0 +1,8 @@
+NAME
+     products
+
+DESCRIPTION
+     Creates a simple system for admin and show catalog of products
+
+EXAMPLE
+      ./script/generate products

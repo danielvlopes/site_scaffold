@@ -1,0 +1,40 @@
+== After generate follow this cake recipe
+
+Finished generating the basic products catalog system. There are still a few things you have to do manually.
+
+1 - run script/generate admin_base if you not done yet.
+
+2 - install restfull_authentication, if you don't done yet.
+  script/plugin install git://github.com/technoweenie/restful-authentication.git
+Run on Terminal
+  script/generate authenticated user sessions --skip-routes
+Open your users_controller.rb and cut/paste the first line to your application.rb
+(the line is something like this "include AuthenticatedSystem" )
+
+3 - install paper_clip
+script/plugin install git://github.com/thoughtbot/paperclip.git
+
+4 - install will_paginate and add to enviroment
+Add the line below to you envinroment.rb file
+  config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
+Run on terminal
+  sudo rake gems:install && rake gems:unpack
+
+5 - place the routes bellow in routes.rb file
+map.products 'products/', :controller=>'products', :action=>'index'
+map.product 'products/:id' , :controller=>'products', :action=>'show'
+
+map.resources :users
+map.resource :session
+map.logout '/logout', :controller => 'sessions', :action => 'destroy'
+map.namespace :admin do |admin|
+  admin.register '/register', :controller => 'users', :action => 'create'
+  admin.signup '/signup', :controller => 'users', :action => 'new'
+  admin.login '/login', :controller => 'sessions', :action => 'new'
+  admin.resources :product_categories, :except=>:show
+  admin.resources :products
+end
+
+6 - Setup your database for your application and run rake migrate.
+rake db:migrate
+

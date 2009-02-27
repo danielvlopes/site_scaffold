@@ -1,0 +1,17 @@
+<% admin_page_header "Editando Categoria de Produto" %>
+
+<% form_for [:admin, @product_category] do |f| %>
+	<%= f.error_messages %>
+
+  <p>
+    <b>Categoria</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <%= f.submit "Atualizar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Exibir', admin_product_category_path(@product_category) %> |
+<%= link_to 'Voltar', admin_product_categories_path %>

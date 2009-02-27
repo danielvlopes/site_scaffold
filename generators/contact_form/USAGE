@@ -1,9 +1,9 @@
 NAME
 	contact_form - creates a contact form
-     
+
 DESCRIPTION
 	This generator creates a contact form
-	
+
 	Included:
 	- ContactForm class stored in model folder, which uses to validate form
 	- ContactMailer mailer class, which uses to store images
@@ -11,10 +11,9 @@ DESCRIPTION
 	- spry folder in public/javascripts folder, used to store adobe spry validation js
 	- spry folder in public/stylesheets folder, used to store adobe spry validation css
 	- View form contact form.
-	      
+
 EXAMPLE
 	./script/generate contact_form
 
 MORE INFO
 	http://www.areacriacoes.com.br/
-	

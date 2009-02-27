@@ -6,7 +6,7 @@ class Admin::PostsController < ApplicationController
   # GET /products
   # GET /products.xml
   def index
-    @posts = Post.paginate :page => params[:page], :per_page => 10, :order => "created_at DESC"    
+    @posts = Post.paginate :page => params[:page], :per_page => 10, :order => "created_at DESC"
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,5 +86,5 @@ class Admin::PostsController < ApplicationController
       format.xml  { head :ok }
     end
   end
-	
+
 end

@@ -11,10 +11,9 @@ DESCRIPTION
       - Views for Admin section (edit.html.erb, show.html.erb, new.html.erb and index.html.erb)
       - Image partial which use to add more images field dinamically.
       - Views for public visualization
-            
+
 EXAMPLE
       ./script/generate posts
 
 BY
 	http://www.areacriacoes.com.br/
-	

@@ -5,7 +5,7 @@
  * For more information visit http://nicedit.com/
  * Do not remove this copyright message
  */
- 
+
  var nicEditorConfig = {
 	buttons : {
 		'save' : {name : 'Click to Save', type : 'nicEditorSaveButton', tile : 1},

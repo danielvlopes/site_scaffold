@@ -1,0 +1,49 @@
+<% admin_page_header "Novo Produto" %>
+
+<% form_for [:admin, @product], :html => { :multipart => true } do |f| %>
+	<%= f.error_messages %>
+
+	<p>
+    <b>Produto</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Categoria</b><br />
+		<%=  f.select(:product_category_id , ProductCategory.find(:all).collect {|p| [ p.name, p.id ] })  %>
+  </p>
+
+  <p>
+    <b>Preço</b><br />
+    <%= f.text_field :price %>
+  </p>
+
+  <p>
+    <b>Preço promocional</b><br />
+    <%= f.text_field :promotional_price %>
+  </p>
+
+  <p>
+    <b>Breve descrição</b><br />
+    <%= f.text_field :short_description %>
+  </p>
+
+  <p><b>Descrição completa</b></p>
+   <%= f.text_area :description %>
+	<br/>
+
+  <p class="text_hint">apenas imagens com no máximo 500kb.</p>
+  <div id="upload_images">
+    <%= render :partial => "image", :collections=>@product.images  %>
+  </div>
+
+  <%= add_image_field "Adicionar mais imagens"%>
+
+  <p>
+    <%= f.submit "Criar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Voltar', admin_products_path %>
+
+<%= niceditor %>

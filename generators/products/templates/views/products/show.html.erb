@@ -1,0 +1,22 @@
+<p>
+  <b>Produto:</b>
+  <%=h @product.name %>
+</p>
+
+<p>
+  <b>Preço:</b>
+	<%= show_price(@product) %>
+</p>
+
+<p>
+  <b>Descrição:</b>
+  <%=h @product.description %>
+</p>
+
+<p>
+	<% for thumb in @product.product_images %>
+	<%= link_to image_tag(thumb.image.url(:medium)), thumb.image.url, :target => "_blank" %>
+	<% end %>
+</p>
+
+<%= link_to 'Voltar', products_url %>

@@ -1,0 +1,62 @@
+<% admin_page_header "Editando Produto" %>
+
+<% form_for [:admin, @product], :html => { :multipart => true } do |f| %>
+	<%= f.error_messages %>
+
+  <p>
+    <b>Produto</b><br />
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Categoria</b><br />
+    <%= f.select(:product_category_id , ProductCategory.find(:all).collect {|p| [ p.name, p.id ] })  %>
+  </p>
+
+  <p>
+    <b>Preço</b><br />
+    <%= f.text_field :price %>
+  </p>
+
+  <p>
+    <b>Preço promocional</b><br />
+    <%= f.text_field :promotional_price %>
+  </p>
+
+  <p>
+    <b>Breve descrição</b><br />
+    <%= f.text_field :short_description %>
+  </p>
+
+  <p><b>Descrição completa</b></p>
+   <%= f.text_area :description %>
+	<br/>
+
+  <div id="upload_images">
+    <b>Imagens:</b><br/>
+		<p class="text_hint">apenas imagens com no máximo 500kb.</p>
+	<%- for images in @product.images -%>
+		<div class="image_field">
+		  <p>
+		  <% fields_for "product[update_images][]", images  do |f|%>
+						<%= link_to image_tag(images.image.url(:small)), images.image.url, :target => "_blank" %>
+						<%= link_to_function "remover", "mark_for_destroy(this)", :class=>"link_delete"%>
+						<%= f.hidden_field :id, :index => nil %>
+						<%= f.hidden_field :should_destroy, :index => nil, :class => "should_destroy" %>
+		  <% end %>
+		  </p>
+		</div>
+	<%- end -%>
+  </div>
+
+  <p><%= add_image_field "Adicionar mais imagens"%></p>
+
+  <p>
+    <%= f.submit "Atualizar" %>
+  </p>
+<% end %>
+
+<%= link_to 'Exibir', admin_product_path(@product) %> |
+<%= link_to 'Voltar', admin_products_path %>
+
+<%= niceditor %>

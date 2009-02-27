@@ -77,7 +77,7 @@ Spry.is = new Spry.Widget.BrowserSniff();
 
 
 Spry.Widget.ValidationTextarea = function(element, options){
-	
+
 	options = Spry.Widget.Utils.firstValid(options, {});
 	this.flags = {locked: false};
 	this.options = {};
@@ -85,7 +85,7 @@ Spry.Widget.ValidationTextarea = function(element, options){
 	this.init(element);
 
 	if (!this.isBrowserSupported()){
-		return;	
+		return;
 	}
 
 	options.useCharacterMasking = Spry.Widget.Utils.firstValid(options.useCharacterMasking, true);
@@ -141,7 +141,7 @@ Spry.Widget.ValidationTextarea.prototype.init = function(element)
 	this.isMaxInvalid = false;
 	this.isMinInvalid = false;
 	this.isRequireInvalid = false;
-	
+
 	this.safariClicked = false;
 	this.state = Spry.Widget.ValidationTextarea.INITIAL;
 };
@@ -220,8 +220,8 @@ Spry.Widget.ValidationTextarea.prototype.isBrowserSupported = function()
 	Spry.is.opera && Spry.is.v >= 9;
 };
 
-/* 
- * register our input to different event notifiers 
+/*
+ * register our input to different event notifiers
  *
  */
 Spry.Widget.ValidationTextarea.prototype.attachBehaviors = function()
@@ -246,7 +246,7 @@ Spry.Widget.ValidationTextarea.prototype.attachBehaviors = function()
 		var self = this;
 		this.event_handlers = [];
 
-		//attach the pattern related event handlers (to stop invalid keys) 
+		//attach the pattern related event handlers (to stop invalid keys)
 		if (this.useCharacterMasking) {
 			if (Spry.is.ie){
 				this.event_handlers.push([this.input, "propertychange", function(e) { return self.onKeyEvent(e || event); }]);
@@ -321,11 +321,11 @@ Spry.Widget.ValidationTextarea.prototype.attachBehaviors = function()
 		if (this.form) {
 			if (!this.form.attachedSubmitHandler && !this.form.onsubmit) {
 				this.form.onsubmit = function(e) { e = e || event; return Spry.Widget.Form.onSubmit(e, e.srcElement || e.currentTarget) };
-				this.form.attachedSubmitHandler = true;                 
+				this.form.attachedSubmitHandler = true;
 			}
 			if (!this.form.attachedResetHandler) {
 				Spry.Widget.Utils.addEventListener(this.form, "reset", function(e) { e = e || event; return Spry.Widget.Form.onReset(e, e.srcElement || e.currentTarget) }, false);
-				this.form.attachedResetHandler = true;                 
+				this.form.attachedResetHandler = true;
 			}
 			// add the currrent widget to the "onSubmit" check queue;
 			Spry.Widget.Form.onSubmitWidgetQueue.push(this);
@@ -336,11 +336,11 @@ Spry.Widget.ValidationTextarea.prototype.attachBehaviors = function()
 
 Spry.Widget.ValidationTextarea.prototype.onTyping = function(e){
 	if (this.input.disabled == true || this.input.readOnly == true){
-			return;	
+			return;
 	}
 
 	if (!this.initialCursor){
-		this.initialCursor = this.cursorPosition;	
+		this.initialCursor = this.cursorPosition;
 	}
 	// on IE a stack overflow appears
 	if (this.flags.locked){
@@ -350,15 +350,15 @@ Spry.Widget.ValidationTextarea.prototype.onTyping = function(e){
 	var val = this.input.value;
 
 	var ret = true;
-	
+
 	if (this.flags.hintOn){
 		return true;
 	}
- 	if (e && this.input && this.options && this.options.maxChars > 0 && ret){
-		if ( val.length > this.options.maxChars  && 
+	if (e && this.input && this.options && this.options.maxChars > 0 && ret){
+		if ( val.length > this.options.maxChars  &&
 							((!Spry.Widget.Utils.isSpecialKey(e) && this.cursorPosition.start == this.cursorPosition.end) ||
-				 			 (Spry.Widget.Utils.isSpecialKey(e) && val != this.initialValue) ||
-				 				this.cursorPosition.start != this.cursorPosition.end)
+							(Spry.Widget.Utils.isSpecialKey(e) && val != this.initialValue) ||
+							this.cursorPosition.start != this.cursorPosition.end)
 			 ){
 					// cut the extra chars and display error
 					this.flags.locked = true;
@@ -434,7 +434,7 @@ Spry.Widget.ValidationTextarea.prototype.validateMinRequired = function(val){
 };
 Spry.Widget.ValidationTextarea.prototype.counterChar = function(){
 	if (!this.counterEl || !this.options || !this.options.counterType || (this.options.counterType != 'chars_remaining' && this.options.counterType != 'chars_count')){
-		return;	
+		return;
 	}
 
 	if (this.options.counterType == 'chars_remaining') {
@@ -463,7 +463,7 @@ Spry.Widget.ValidationTextarea.prototype.counterChar = function(){
 };
 
 Spry.Widget.ValidationTextarea.prototype.setCounterElementValue = function(val){
-		if ( this.counterEl.nodeName.toLowerCase() != 'input' && 
+		if ( this.counterEl.nodeName.toLowerCase() != 'input' &&
 			this.counterEl.nodeName.toLowerCase() != 'textarea' &&
 			this.counterEl.nodeName.toLowerCase() != 'select' &&
 			this.counterEl.nodeName.toLowerCase() != 'img'){
@@ -483,13 +483,13 @@ Spry.Widget.ValidationTextarea.prototype.reset = function() {
 
 Spry.Widget.ValidationTextarea.prototype.validate = function(){
 	if (this.input.disabled == true || this.input.readOnly == true){
-			return true;	
+			return true;
 	}
 
   if (this.validateOn & Spry.Widget.ValidationTextarea.ONSUBMIT) {
     this.removeHint();
   }
-  
+
 	var val = this.input.value;
 	this.validateMinRequired(val);
 
@@ -503,14 +503,14 @@ Spry.Widget.ValidationTextarea.prototype.validate = function(){
 			}else{
 					this.switchClassName(this.invalidCharsMaxClass);
 					this.setState(Spry.Widget.ValidationTextarea.MAXIMUM);
-					this.isMaxInvalid = true;	
+					this.isMaxInvalid = true;
 			}
 	}
 	ret = ret && !this.isMaxInvalid;
 	if (ret) {
 		this.switchClassName(this.validClass);
 	}
-	this.counterChar();	
+	this.counterChar();
 	return ret;
 };
 
@@ -524,7 +524,7 @@ Spry.Widget.ValidationTextarea.prototype.getState = function(){
 
 Spry.Widget.ValidationTextarea.prototype.removeHint = function()
 {
-	if (this.flags.hintOn) 
+	if (this.flags.hintOn)
 	{
 		this.flags.locked = true;
 		this.input.value = "";
@@ -565,7 +565,7 @@ Spry.Widget.ValidationTextarea.prototype.onKeyPress = function(e)
 };
 
 Spry.Widget.ValidationTextarea.prototype.onKeyDown = function(e)
-{ 
+{
 	this.saveState();
 	this.keyCode = e.keyCode;
 	return true;
@@ -574,7 +574,7 @@ Spry.Widget.ValidationTextarea.prototype.onKeyDown = function(e)
 /*
  * hadle for the max chars restrictions
  * if key pressed or the input text is invalid it returns false
- * 
+ *
  */
 Spry.Widget.ValidationTextarea.prototype.onKeyEvent = function(e){
 	// on IE we look only for this input value changes
@@ -593,7 +593,7 @@ Spry.Widget.ValidationTextarea.prototype.onKeyEvent = function(e){
 /*
  * handle for the min or required value
  * if the input text is invalid it returns false
- * 
+ *
  */
 Spry.Widget.ValidationTextarea.prototype.onChange = function(e){
 	if (Spry.is.ie && e && e.type == 'propertychange' && e.propertyName != 'value') {
@@ -676,7 +676,7 @@ Spry.Widget.ValidationTextarea.prototype.safariMouseDown = function(e){
 };
 Spry.Widget.ValidationTextarea.prototype.safariChangeMouseUp = function(e){
 		if (!this.safariClicked){
-			this.onKeyDown(e); 
+			this.onKeyDown(e);
 			return this.safariChangeValidate(e, false);
 		}else{
 			this.safariClicked = false;
@@ -720,9 +720,9 @@ Spry.Widget.ValidationTextarea.prototype.safariChangeKeyPress = function(e){
 };
 
 Spry.Widget.ValidationTextarea.prototype.safariChangeValidate = function(e, recall){
-	
+
 	if(e.keyCode && Spry.Widget.Utils.isSpecialKey(e) && e.keyCode != 8 && e.keyCode != 46){
-		return true;	
+		return true;
 	}
 	var answer = this.onChange(e);
 
@@ -736,10 +736,10 @@ Spry.Widget.ValidationTextarea.prototype.safariChangeValidate = function(e, reca
 
 /*
  * save an initial state of the input to restore if the value is invalid
- * 
+ *
  */
 Spry.Widget.ValidationTextarea.prototype.saveState = function(e){
-	
+
 	// we don't need this initial value that is already invalid
 	if (this.options.maxChars > 0 && this.input.value.length > this.options.maxChars){
 		return;
@@ -750,7 +750,7 @@ Spry.Widget.ValidationTextarea.prototype.saveState = function(e){
 	}else{
 		this.initialValue = '';
 	}
-	this.initialCursor = this.cursorPosition; 
+	this.initialCursor = this.cursorPosition;
 	return true;
 };
 
@@ -761,7 +761,7 @@ Spry.Widget.ValidationTextarea.prototype.checkClassName = function(ele, classNam
 	if (typeof ele == 'string' ) {
 		ele = document.getElementById(ele);
 		if (!ele){
-			return false;	
+			return false;
 		}
 	}
 	if (!ele.className){
@@ -775,7 +775,7 @@ Spry.Widget.ValidationTextarea.prototype.switchClassName = function (className){
 
 	for (var k = 0; k < classes.length; k++){
 		if (classes[k] != className){
-				this.removeClassName(classes[k]);			
+				this.removeClassName(classes[k]);
 		}
 	}
 
@@ -798,16 +798,16 @@ Spry.Widget.ValidationTextarea.prototype.removeClassName = function(className){
 	var ele = this.checkClassName(this.element, className);
 	var add = this.checkClassName(this.additionalError, className);
 	if (!ele){
-	  return;	
+	  return;
 	}
 	ele.className = ele.className.replace(new RegExp("\\s*\\b" + className + "\\b", "g"), '');
 	if (add){
 		add.className = add.className.replace(new RegExp("\\s*\\b" + className + "\\b", "g"), '');
 	}
-}; 
+};
 
 /**
- * SelectionDescriptor is a wrapper for input type text selection methods and properties 
+ * SelectionDescriptor is a wrapper for input type text selection methods and properties
  * as implemented by various  browsers
  */
 Spry.Widget.SelectionDescriptor = function (element)
@@ -840,8 +840,8 @@ Spry.Widget.SelectionDescriptor.prototype.update = function()
 					this.length = this.end - this.start;
 					// get selected and surrounding text
 					this.text = range.text;
-		 		}
-			}        
+				}
+			}
 		} else if (this.element.nodeName == "INPUT"){
 			try{this.range = sel.createRange();}catch(err){return;}
 			this.length = this.range.text.length;
@@ -856,7 +856,7 @@ Spry.Widget.SelectionDescriptor.prototype.update = function()
 		var tmp = this.element;
 		var selectionStart = 0;
 		var selectionEnd = 0;
-        
+
 		try { selectionStart = tmp.selectionStart;} catch(err) {}
 		try { selectionEnd = tmp.selectionEnd;} catch(err) {}
 
@@ -887,7 +887,7 @@ Spry.Widget.SelectionDescriptor.prototype.moveTo = function(start, end)
 			this.range = this.element.createTextRange();
 			this.range.move("character", start);
 			this.range.moveEnd("character", end - start);
-			
+
 			var c1 = this.range.compareEndPoints("StartToStart", ta_range);
 			if (c1 < 0) {
 				this.range.setEndPoint("StartToStart", ta_range);

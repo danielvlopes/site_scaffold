@@ -7,16 +7,16 @@
     <title> Admin </title>
     <%= stylesheet_link_tag "admin" %>
 		<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.1/scriptaculous.js"></script>		
+		<script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.1/scriptaculous.js"></script>
    	<%= javascript_include_tag "application", "admin", "nicedit"%>
-    <%= yield(:head) %> 
-    
+    <%= yield(:head) %>
+
     <script type="text/javascript" charset="utf-8">
 			Event.observe(window, 'load', function() {
 			  new Effect.Opacity("notice", {duration:3.0, from:1.0, to:0.0});
 			});
-    </script>     
-    
+    </script>
+
   </head>
   <body>
 		<div id="header" class="global" >
@@ -24,20 +24,20 @@
 		    <br/>
 				<%= render :partial=>"shared/admin_menu" %>
 		</div>
-  	
+
 		<div id="container">
 			<h1 id="page_header"><%= yield(:page_header) %></h1>
 			<% if flash[:notice] %><div id="notice" class="notice"><%= flash[:notice] %></div><% end %>
 			<% if flash[:warning] %><div class="warning"><%= flash[:warning] %></div><% end %>
 			<% if flash[:error] %><div class="error"><%= flash[:error] %></div><% end %>
-			
+
 			<div class="content">
 				<%=@content_for_layout%>
 				<p>&nbsp;</p>
 			</div>
 		</div>
 		<div id="footer"><a href="http://www.YOURSITE.com.br/">Desenvolvido por YOUR SITE</a></div>
-  
+
   </body>
 
 </html>

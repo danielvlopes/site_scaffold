@@ -1,0 +1,30 @@
+/* CSS Document */
+.product_box{
+	width: 120px;
+	float:left;
+	padding:7px 0px;
+	margin: 0px 5px 0px 5px;
+	text-align: center;
+	font-size:11px;
+	color:#666666;
+}
+
+.product_box .promotional_price{
+	font-weight:bold;
+	color: #990000;
+}
+
+.product_box .view {
+	color:#FFF;
+	background:#5CA9BC;
+	padding:0 3px;
+	height:15px;
+	line-height:15px;
+	width:60px;
+	margin-top:3px;
+}
+
+.product_box .view:hover {
+	text-decoration:none;
+	background:#990000;
+}

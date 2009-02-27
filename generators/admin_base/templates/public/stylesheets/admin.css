@@ -70,7 +70,7 @@ header
 	margin: 0;
 	text-align: left;
   position: relative;
-	}	
+	}
 
 #header h1 /* client */ {
 	padding: 0 0 10px 0;
@@ -87,7 +87,7 @@ header
 	color: #fff;
 	border: none;
 	font-family: "Lucida Grande", arial, sans-serif;
-	}	
+	}
 
 /*-------------------------------------------------
 tabs
@@ -122,7 +122,7 @@ ul#main_tabs a:link, ul#main_tabs a:visited {
 	font-weight: normal;
 	line-height:25px;
 	padding-right: 8px;
-	padding-left: 8px;	
+	padding-left: 8px;
 	margin: 0;
 	color:#fff;
 }
@@ -130,7 +130,7 @@ ul#main_tabs a:link, ul#main_tabs a:visited {
 ul#main_tabs a:hover {
 	color: #fff;
 	background: #76b676;
-	border-bottom: 1px solid #76b676;	
+	border-bottom: 1px solid #76b676;
 }
 
 #tabs ul#main_tabs a:link.current, #tabs ul#main_tabs a:visited.current {
@@ -149,7 +149,7 @@ user
 	float:right;
 	font-size: 12px;
 	color:#FFFFFF;
-	line-height:25px;	
+	line-height:25px;
 }
 
 #user a {
@@ -218,8 +218,8 @@ MISC
 }
 
 #datagrid .list_line0{
-	background-color:#ecf1fa;	
-	line-height:20px;	
+	background-color:#ecf1fa;
+	line-height:20px;
 	font-size:13px;
 }
 
@@ -229,7 +229,7 @@ MISC
 }
 
 #datagrid tr:hover{background-color:#dbffcb;}
-#datagrid .show_column, .edit_column, .delete_column{ text-align:center; width: 100px; }	
+#datagrid .show_column, .edit_column, .delete_column{ text-align:center; width: 100px; }
 #datagrid .show_column a{ color:#1fbf21; text-decoration:none;}
 #datagrid .edit_column a{ color:#9c874e; text-decoration:none; }
 #datagrid .delete_column a{ color:#ff0000; text-decoration:none; }

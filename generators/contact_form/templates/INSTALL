@@ -1,15 +1,15 @@
 == After Generate
 
 Finished generating the contact_form. There are still a few things you have to
-do manually. 
+do manually.
 
 	1 - install ActiveForm plugin
-	script/plugin install git://github.com/xgamerx/active_form.git 
+	script/plugin install git://github.com/xgamerx/active_form.git
 
 	2 - create this routes in your routes.rb
-	map.contact 'contact/', :controller=>'contact', :action=>'index'  	
-	map.send_contact 'contact/send_contact', :controller=>'contact', :action=>'send_contact'  	
-	
+	map.contact 'contact/', :controller=>'contact', :action=>'index'
+	map.send_contact 'contact/send_contact', :controller=>'contact', :action=>'send_contact'
+
 	3 - enviroment config:
 	config you enviroment to send email, like this example:
 	config.action_mailer.delivery_method = :smtp
@@ -18,6 +18,6 @@ do manually.
 	  :port               => 25,
 	  :domain           	=> 'areacriacoes.com.br',
 	  :authentication 		=> :login,
-	  :user_name      		=> "contato@areacriacoes.com.br",  
-	  :password        		=> "password"  
-	} 	
+	  :user_name      		=> "contato@areacriacoes.com.br",
+	  :password        		=> "password"
+	}

@@ -20,10 +20,10 @@
   <div id="upload_images">
     <%= render :partial => "image", :collection => @post.post_images %>
   </div>
-  
-  <%= add_image_field "Adicionar mais imagens"%>  
-	<p class="text_hint">apenas imagens com no máximo 500kb.</p>    
-	
+
+  <%= add_image_field "Adicionar mais imagens"%>
+	<p class="text_hint">apenas imagens com no máximo 500kb.</p>
+
   <p>
     <%= f.submit "Criar" %>
   </p>
