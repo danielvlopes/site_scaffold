@@ -2,7 +2,9 @@ SiteScaffold
 ============
 
 This plugin is a basic generator for some repetitive task when working with websites. You can use script/generate to create
-contact forms, admin painel with mini-blog session and product catalog.
+contact forms, admin painel with mini-blog session, product catalog and some configurations and localalization options.
+
+It is compatible with Rails 2.2 version.
 
 Example
 =======
@@ -12,5 +14,11 @@ script/generate posts
 script/generate contact_form
 script/generate products_catalog
 
+Dependencies
+============
 
-Copyright (c) 2008 Daniel Lopes, released under the MIT license
+restful_authentication
+paper_clip
+will_paginate
+
+Copyright (c) 2009 Daniel Lopes, released under the MIT license
