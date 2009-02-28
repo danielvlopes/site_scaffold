@@ -21,4 +21,12 @@ restful_authentication
 paper_clip
 will_paginate
 
+TODO
+====
+
+change everything to jquery with jrails
+remove spry components
+add test_unit coverage
+change to auth_logic
+
 Copyright (c) 2009 Daniel Lopes, released under the MIT license
