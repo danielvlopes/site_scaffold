@@ -5,6 +5,13 @@ class AdminBaseGenerator < Rails::Generator::Base
       # Controller
       m.directory "app/controllers/admin" unless File.directory? "app/controllers/admin"
 
+      # Locales
+      m.file "config/pt-BR.yml", "config/locales/pt-BR.yml"
+
+      # Config
+      m.file "config/config.yml", "config/config.yml"
+      m.file "config/load_config.rb", "config/initializers/load_config.rb"
+
       # Views
       m.directory "app/views/shared"
       m.file "views/shared/_admin_menu.html.erb", "app/views/shared/_admin_menu.html.erb"

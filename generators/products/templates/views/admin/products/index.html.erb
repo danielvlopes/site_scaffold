@@ -18,8 +18,8 @@
   <tr class="<%=cycle('odd','even')%>">
     <td><%=h product.name %></td>
     <td><%=h product.product_category.name %></td>
-    <td><%=h product.price %></td>
-    <td><%=h product.promotional_price %></td>
+    <td><%=h number_to_currency(product.price) %></td>
+    <td><%=h number_to_currency(product.promotional_price) %></td>
     <td><%=h product.short_description %></td>
     <td><%= truncate(product.description,30) %></td>
     <td align="center">

@@ -1,0 +1,35 @@
+common:
+  #db validation constants
+  db_string_max_length: 255
+  db_text_max_length: 40000
+  #regex
+  email_regex: !ruby/regexp "/\A[\w\.%\+\-]+@(?:[A-Z0-9\-]+\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum)\z/i"
+  decimal_regex: !ruby/regexp "/\A\d+((\.\d{2})|(\.\d{1}))?\Z/" #decimal with scale 2
+  mysql_date_regex: !ruby/regexp "/\A\d{4}-\d{2}-\d{2}\Z/"
+
+development:
+  site_url: http://localhost:3000/
+  site_host: localhost
+  site_email_address: myemail@gmail.com
+  site_name: My Site
+  admin_login: admin
+  admin_password: admin
+  admin_email_address: admin@gmail.com
+
+test:
+  site_url: http://localhost:3000/
+  site_host: localhost
+  site_email_address: myemail@gmail.com
+  site_name: My Site
+  admin_login: admin
+  admin_password: admin
+  admin_email_address: admin@gmail.com
+
+production:
+  site_url: http://www.site.com.br/
+  site_host: site.com.br
+  site_email_address: contato@site.com.br
+  site_name: My Site
+  admin_login: admin
+  admin_password: admin
+  admin_email_address: contato@site.com.br

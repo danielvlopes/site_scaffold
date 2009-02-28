@@ -12,12 +12,12 @@
 
 <p>
   <b>Preço:</b>
-  <%=h @product.price %>
+  <%=h number_to_currency(@product.price) %>
 </p>
 
 <p>
   <b>Preço promocional:</b>
-  <%=h @product.promotional_price %>
+  <%=h number_to_currency(@product.promotional_price) %>
 </p>
 
 <p>
