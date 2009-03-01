@@ -6,7 +6,7 @@ class PostImage < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "640x480>", :small => "70x50>" }
   validates_attachment_presence :image
   validates_attachment_thumbnails :image
-  validates_attachment_content_type :image, :content_type => ProductImage::IMAGE_TYPE
+  validates_attachment_content_type :image, :content_type => PostImage::IMAGE_TYPE
   validates_attachment_size :image, :less_than => 5.megabytes
 
   attr_accessor :should_destroy

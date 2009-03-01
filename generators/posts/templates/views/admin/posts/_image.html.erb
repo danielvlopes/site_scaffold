@@ -2,7 +2,7 @@
   <p>
   <% fields_for "post[images_attributes][]", image  do |f|%>
       Imagem: <%= f.file_field "image", :index => nil %>
-      <%= link_to_function "remover", "$(this).up('.image_field').remove();", :class=>"link_delete"%>
+      <%= link_to_function "remover", "$(this).parent().remove()", :class=>"link_delete"%>
   <% end %>
   </p>
 </div>

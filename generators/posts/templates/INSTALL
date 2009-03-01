@@ -16,13 +16,16 @@ Open your users_controller.rb and cut/paste the first line to your application.r
 3 - install paper_clip
 script/plugin install git://github.com/thoughtbot/paperclip.git
 
-4 - install will_paginate and add to enviroment
+4 - install jrails
+script/plugin install http://ennerchi.googlecode.com/svn/trunk/plugins/jrails
+
+5 - install will_paginate and add to enviroment
 Add the line below to you envinroment.rb file
   config.gem 'mislav-will_paginate', :lib => 'will_paginate', :source => 'http://gems.github.com'
 Run on terminal
   sudo rake gems:install && rake gems:unpack
 
-5 - place the routes bellow in routes.rb file (pay atention to not remove or conflict routes with products routes)
+6 - place the routes bellow in routes.rb file (pay atention to not remove or conflict routes with products routes)
 map.posts  'posts/', :controller=>'posts', :action=>'index'
 map.resources :users
 map.resource :session
@@ -34,6 +37,5 @@ map.namespace :admin do |admin|
   admin.resources :posts
 end
 
-
-6 - Setup your database for your application and run rake migrate.
+7 - Setup your database for your application and run rake migrate.
 rake db:migrate

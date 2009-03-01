@@ -20,6 +20,7 @@ Dependencies
 restful_authentication
 paper_clip
 will_paginate
+jrails
 
 TODO
 ====

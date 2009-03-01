@@ -6,16 +6,8 @@
     <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
     <title> Admin </title>
     <%= stylesheet_link_tag "admin" %>
-		<script src="http://ajax.googleapis.com/ajax/libs/prototype/1.6.0.2/prototype.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/scriptaculous/1.8.1/scriptaculous.js"></script>
-   	<%= javascript_include_tag "application", "admin", "nicedit"%>
+		<%= javascript_include_tag :defaults, "admin", "nicedit"%>
     <%= yield(:head) %>
-
-    <script type="text/javascript" charset="utf-8">
-			Event.observe(window, 'load', function() {
-			  new Effect.Opacity("notice", {duration:3.0, from:1.0, to:0.0});
-			});
-    </script>
 
   </head>
   <body>
@@ -27,9 +19,11 @@
 
 		<div id="container">
 			<h1 id="page_header"><%= yield(:page_header) %></h1>
+			<div id="flash">
 			<% if flash[:notice] %><div id="notice" class="notice"><%= flash[:notice] %></div><% end %>
 			<% if flash[:warning] %><div class="warning"><%= flash[:warning] %></div><% end %>
 			<% if flash[:error] %><div class="error"><%= flash[:error] %></div><% end %>
+			</div>
 
 			<div class="content">
 				<%=@content_for_layout%>
@@ -37,7 +31,11 @@
 			</div>
 		</div>
 		<div id="footer"><a href="http://www.areacriacoes.com.br/">Desenvolvido por Area Cria&ccedil;&otilde;es</a></div>
-
+    <script type="text/javascript" charset="utf-8">
+				$("#flash").click(function () {
+					$("#flash").fadeOut("slow");
+				});
+    </script>
   </body>
 
 </html>
