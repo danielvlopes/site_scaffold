@@ -20,7 +20,7 @@ class ContactFormGenerator < Rails::Generator::Base
       m.file "views/contact_mailer/send_contact.html.erb", "app/views/contact_mailer/send_contact.html.erb" , :collision => :skip
 
       # Assets
-			m.file "public/stylesheets/validationEngine.jquery.css", :collision => :skip
+			m.file "public/stylesheets/validationEngine.jquery.css", "public/stylesheets/validationEngine.jquery.css", :collision => :skip
 			m.file "public/javascripts/jquery.validationEngine-pt-BR.js", "public/javascripts/jquery.validationEngine-pt-BR.js" , :collision => :skip
 			m.file "public/javascripts/jquery.validationEngine.js", "public/javascripts/jquery.validationEngine.js" , :collision => :skip
 
