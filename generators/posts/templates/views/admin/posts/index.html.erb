@@ -14,7 +14,6 @@
   <tr class="<%=cycle('odd','even')%>">
     <td><%=h post.author %></td>
     <td><%=h post.title %></td>
-    <td><%= truncate(post.body, 50) %></td>
     <td class="show_column"><%= link_to 'Exibir', admin_post_path(post) %></td>
     <td class="edit_column"><%= link_to 'Editar', edit_admin_post_path(post) %></td>
     <td class="delete_column"><%= link_to 'Excluir', admin_post_path(post), :confirm => 'Tem certeza?', :method => :delete %></td>
