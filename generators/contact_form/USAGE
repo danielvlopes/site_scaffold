@@ -8,8 +8,7 @@ DESCRIPTION
 	- ContactForm class stored in model folder, which uses to validate form
 	- ContactMailer mailer class, which uses to store images
 	- ContactController with send_contact action, which uses to sendo email
-	- spry folder in public/javascripts folder, used to store adobe spry validation js
-	- spry folder in public/stylesheets folder, used to store adobe spry validation css
+	- jquery validation
 	- View form contact form.
 
 EXAMPLE

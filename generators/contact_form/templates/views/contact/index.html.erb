@@ -1,27 +1,17 @@
-<%= javascript_include_tag "spry/SpryValidationTextarea","spry/SpryValidationTextField" %>
-<%= stylesheet_link_tag "spry/SpryValidationTextarea","spry/SpryValidationTextField" %>
+<%= javascript_include_tag "jquery.validationEngine-pt-BR","jquery.validationEngine" %>
+<%= stylesheet_link_tag "validationEngine.jquery"%>
 
 <% form_tag send_contact_path, :method => :post  do -%>
 
 	<p class="text_hint">* campos obrigatórios</p>
 	<p>
 	  <b>*Nome:</b><br />
-		<span id="spry_name">
-		  <%= text_field_tag :name, nil, :size => 30 %>
-		  <br/>
-			<span class="textfieldRequiredMsg">Campo obrigatório.</span>
-	  </span>
+		<%= text_field_tag :name, nil, :size => 30, :class=>"validate[required,custom[onlyLetter],length[0,100]] text-input" %>
 	</p>
 
 	<p>
 	  <b>*E-mail:</b><br />
-	  <span id="spry_email">
-		  <%= text_field_tag :email, nil, :size => 30%>
-		  <br/>
-		  <span class="textfieldRequiredMsg">Campo obrigatório.</span>
-		  <br/>
-		  <span class="textfieldInvalidFormatMsg">Formato inválido.</span>
-	  </span>
+		<%= text_field_tag :email, nil, :size => 30, :class=>"validate[required,custom[email]] text-input" %>
 	</p>
 
 	<p>
@@ -31,23 +21,9 @@
 
 	<p>
 	  <b>*Mensagem:</b><br />
-		<span id="spry_message">
-		  <%= text_area_tag :message, nil, :cols => 40, :rows => 3 %>
-		  <br/>
-			<span class="textareaRequiredMsg">Campo obrigatório.</span>
-	  </span>
+		<%= text_area_tag :message, nil, :cols => 40, :rows => 3, :class=>"validate[required]" %>
 	</p>
 
-	<p>
-	  <%= submit_tag "Enviar", :class => "button" %>
-	</p>
+	<p><%= submit_tag "Enviar", :class => "button" %></p>
 
 <% end -%>
-
-<script type="text/javascript">
-<!--
-var spry_message = new Spry.Widget.ValidationTextarea("spry_message");
-var spry_name		 = new Spry.Widget.ValidationTextField("spry_name");
-var spry_email	 = new Spry.Widget.ValidationTextField("spry_email", "email");
-//-->
-</script>

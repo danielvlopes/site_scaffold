@@ -2,7 +2,7 @@ class ContactController < ApplicationController
 
   def send_contact
    begin
-      @contact_form = ContactForm.new(:name => params[:name], :email => params[:email], :message => params[:message])
+      @contact_form = ContactForm.new(params[:name], params[:email], params[:message])
       if @contact_form.valid?
         ContactMailer.deliver_send_contact(params)
         flash[:notice] = "Sua mensagem foi enviada com sucesso"

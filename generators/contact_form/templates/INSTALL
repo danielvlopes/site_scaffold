@@ -3,8 +3,11 @@
 Finished generating the contact_form. There are still a few things you have to
 do manually.
 
-	1 - install ActiveForm plugin
-	script/plugin install git://github.com/xgamerx/active_form.git
+	1 - install Validatable (gem install validatable)
+	Add the line below to you envinroment.rb file
+  config.gem 'validatable'
+	Run on terminal
+  sudo rake gems:install && rake gems:unpack
 
 	2 - create this routes in your routes.rb
 	map.contact 'contact/', :controller=>'contact', :action=>'index'
