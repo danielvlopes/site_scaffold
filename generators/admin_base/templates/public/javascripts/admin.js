@@ -1,4 +1,4 @@
 function mark_for_destroy(element){
-	$(element).next('.should_destroy').value = 1;
-	$(element).up('.image_field').hide();
+	$(element).siblings('.should_destroy').val(1);
+	$(element).parents('.image_field').hide();
 }
